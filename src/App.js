@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import marked from 'marked';
 import Badge from 'react-bootstrap/Badge';
 import "./App.css";
+
 import Editor from './Components/Editor';
 import Previewer from './Components/Previewer';
 
@@ -15,34 +15,33 @@ const App = () => {
            <div className="row mt-4">
               <div className="col text-center">
                <h1>
-                 <Badge className="text-align-center" variant="light">
-                   Markdown Previewer
+                 <Badge className="text-align-center" variant="light" style={{fontSize: '50px'}}>
+                   React Markdown Previewer
                  </Badge>
                </h1>
               </div>
             </div>
 
-            <div className="row mt-4">
-              <div className="col-md-6">
+            <div className="row mt-5">
+             <div className="col-md-6">
               <div className="col text-center">
                  <h4>
-                   <Badge className="text-align-center" variant="secondary">
-                     Markdown Input
+                   <Badge className="text-align-center" variant="secondary" style={{fontSize: '28px'}}>
+                      Editor
                    </Badge>
                  </h4>
                </div>
-               {/* <div className="mark-input"> */}
                <Editor 
                  markdown={markdown}
                  onChange={(e) => setMarkdown(e.target.value)}
                 />
               </div>
 
-               <div className="col-md-6">
+              <div className="col-md-6">
                <div className="col text-center">
                  <h4>
-                   <Badge className="text-align-center" variant="secondary">
-                     Preview
+                   <Badge className="text-align-center" variant="secondary" style={{fontSize: '28px'}}>
+                     Previewer
                    </Badge>
                  </h4>
                </div>

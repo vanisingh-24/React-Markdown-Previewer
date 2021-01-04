@@ -6,12 +6,12 @@
   }
 
 .textarea {
-  min-height: 100vh !important;
+  min-height: 70vh !important;
   padding: 20px;
   resize: vertical !important;
   display: block;
   box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
-  width: 90%;
+  width: 100%;
   background-color: #fff;
   border-color: #dbdbdb;
   border-radius: 4px;
@@ -26,4 +26,6 @@
     0 0 0 1px rgba(10, 10, 10, 0.02);
   color: #4a4a4a;
   display: block;
+  min-height: 70vh;
+  border: 1px solid #dbdbdb;
 }
