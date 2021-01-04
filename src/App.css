@@ -1,0 +1,29 @@
+.container {
+    flex-grow: 1;
+    margin: 0 auto !important;
+    position: relative;
+    width: auto;
+  }
+
+.textarea {
+  min-height: 100vh !important;
+  padding: 20px;
+  resize: vertical !important;
+  display: block;
+  box-shadow: inset 0 0.0625em 0.125em rgba(10, 10, 10, 0.05);
+  width: 90%;
+  background-color: #fff;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  color: #363636;
+}
+
+.box {
+  padding: 20px !important;
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0 0 1px rgba(10, 10, 10, 0.02);
+  color: #4a4a4a;
+  display: block;
+}

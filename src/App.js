@@ -1,91 +1,66 @@
-import React from 'react';
-import Badge from "react-bootstrap/Badge";
-let marked = require("marked");
+import React, { useState } from 'react';
+import marked from 'marked';
+import Badge from 'react-bootstrap/Badge';
+import "./App.css";
+import Editor from './Components/Editor';
+import Previewer from './Components/Previewer';
 
-export default class App extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      markdown: ''
-    };
-  };
+const App = () => {
+  const [markdown, setMarkdown] = useState(placeholder);
 
-  updateMarkdownHandler(markdown){
-    this.setState({markdown});
-  }
-
-  render(){
-  var inputStyle = {
-    width: "400px",
-    height: "50vh",
-    marginLeft: "auto",
-    marginRight: "auto",
-    padding: "10px"
-  };
-
-  var outputStyle = {
-    width: "400px",
-    height: "50vh",
-    backgroundColor: "#DCDCDC",
-    marginLeft: "auto",
-    marginRight: "auto",
-    padding:"10px"
-  };
-
-    return (
-      <div className="App">
-         <div className="container">
-           <div className="row mt-4">
-             <div className="col text-center">
-              <h1>
-                <Badge className="text-align-center" variant="light">
-                  Markdown Previewer
-                </Badge>
-              </h1>
-             </div>
-           </div>
+  return (
+    <div className="App">
+       <div className="container">
 
            <div className="row mt-4">
-             <div className="col-md-6">
-               <div className="col text-center">
+              <div className="col text-center">
+               <h1>
+                 <Badge className="text-align-center" variant="light">
+                   Markdown Previewer
+                 </Badge>
+               </h1>
+              </div>
+            </div>
+
+            <div className="row mt-4">
+              <div className="col-md-6">
+              <div className="col text-center">
                  <h4>
                    <Badge className="text-align-center" variant="secondary">
                      Markdown Input
                    </Badge>
                  </h4>
                </div>
-               <div className="mark-input" style={inputStyle}>
-                 <textarea
-                  className="input" 
-                  style={inputStyle} 
-                  value={this.state.markdown}
-                  onChange={(e) => {
-                    this.updateMarkdownHandler(e.target.value);
-                  }}
-                >
-                  {console.log(this.state.markdown)}
-                </textarea>
-               </div>
-             </div>
+               {/* <div className="mark-input"> */}
+               <Editor 
+                 markdown={markdown}
+                 onChange={(e) => setMarkdown(e.target.value)}
+                />
+              </div>
 
-             <div className="col-md-6">
-             <div className="col text-center">
+               <div className="col-md-6">
+               <div className="col text-center">
                  <h4>
                    <Badge className="text-align-center" variant="secondary">
                      Preview
                    </Badge>
                  </h4>
                </div>
-               <div
-                style={outputStyle} 
-                dangerouslySetInnerHTML = {{ __html: marked(this.state.markdown)}}
-               >
-                
-               </div>
-             </div>
-           </div>
-         </div>
-      </div>
-    );
-  }
+               <Previewer markdown={markdown} />
+               
+              </div>
+            </div>
+        </div>
+    </div>
+  );
 }
+
+const placeholder = `# Welcome to my React Markdown Previewer!
+## This is a sub-heading...
+### And here's some other cool stuff:
+  
+Heres some code, \`<div></div>\`, between 2 backticks.
+\`\`\`
+// this is multi-line code:`
+
+export default App;
