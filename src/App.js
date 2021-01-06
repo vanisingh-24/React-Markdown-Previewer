@@ -8,7 +8,7 @@ import ThemeColor from './Components/ThemeColor';
 import RepoLink from './Components/RepoLink';
 import Toggle from './Components/Toggle';
 import {MoonIcon, SunIcon} from './Components/Icons';
-
+import GlobalStyles from './utils/GlobalStyles';
 import{
   light,
   dark
@@ -16,8 +16,9 @@ import{
 import {useTheme} from './utils/useTheme';
 
 const App = () => {
-  const [markdown, setMarkdown] = useState(placeholder);
-  const [theme, setMode, mountedComponent] = useTheme();
+  //const [markdown, setMarkdown] = useState(placeholder);
+  //const [theme, setMode, mountedComponent] = useTheme();
+  //const [theme, setTheme] = useState('light');
 
   const themeMode = () => {
     switch (theme) {
@@ -26,11 +27,11 @@ const App = () => {
       case "dark":
         return dark;
       default:
-        return lightTheme;
+        return light;
     }
   };
 
-  if(!mountedComponent) return <div />;
+  //if(!mountedComponent) return <div />;
 
   return (
     <ThemeProvider theme={themeMode()}>

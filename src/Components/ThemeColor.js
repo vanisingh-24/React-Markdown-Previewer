@@ -33,24 +33,7 @@ function ThemeColor({setMode}) {
         onClick={setTheme}
         color="#1A202C"
       ></Button>
-      <Button
-        className="button"
-        color="#68D391"
-        name="quiet"
-        onClick={setTheme}
-      ></Button>
-      <Button
-        className="button"
-        color="#4FD1C5"
-        name="ocean"
-        onClick={setTheme}
-      ></Button>
-      <Button
-        className="button"
-        color="#FC8181"
-        name="marvel"
-        onClick={setTheme}
-      ></Button>
+      
     </div>
     );
 }
