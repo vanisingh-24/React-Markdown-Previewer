@@ -20,7 +20,7 @@ const Link = styled.a`
 
 const RepoLink = () => {
     return(
-      <Link href='https://github.com/vanisingh-24/markdown-previewer'>
+      <Link href='https://github.com/vanisingh-24/React-Markdown-Previewer'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         fillRule='evenodd'
