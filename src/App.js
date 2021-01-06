@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "./App.css";
 import { ThemeProvider } from 'styled-components';
 
 import Editor from './Components/Editor';
 import Previewer from './Components/Previewer';
 import ThemeColor from './Components/ThemeColor';
+import RepoLink from './Components/RepoLink';
+import Toggle from './Components/Toggle';
+import {MoonIcon, SunIcon} from './Components/Icons';
 
 import{
-  lightTheme,
-  darkTheme,
-  oceanTheme,
-  quietTheme,
-  marvelTheme
+  light,
+  dark
 } from './utils/Themes';
 import {useTheme} from './utils/useTheme';
 
@@ -22,15 +22,9 @@ const App = () => {
   const themeMode = () => {
     switch (theme) {
       case "light":
-        return lightTheme;
+        return light;
       case "dark":
-        return darkTheme;
-      case "ocean":
-        return oceanTheme;
-      case "quiet":
-        return quietTheme;
-      case "marvel":
-        return marvelTheme;
+        return dark;
       default:
         return lightTheme;
     }
@@ -103,12 +97,36 @@ const App = () => {
   );
 }
 
-const placeholder = `# Welcome to my React Markdown Previewer!
-## This is a sub-heading...
-### And here's some other cool stuff:
-  
-Heres some code, \`<div></div>\`, between 2 backticks.
-\`\`\`
-// this is multi-line code:`
+const placeholder = `Heading
+=======
+
+---
+
+Sub-heading
+-----------
+ 
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+Text attributes *italic*, **bold**, 
+
+Ordered list:
+
+  * item
+  * item
+  * item
+
+Numbered list:
+
+  1. item
+  2. item
+  3. item
+
+javascript 
+var s = "JavaScript syntax highlighting";
+
+alert(s);
+ 
+
+*[Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)*`
 
 export default App;

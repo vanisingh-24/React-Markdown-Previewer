@@ -1,29 +1,39 @@
-export const lightTheme = {
-    body: "#E2E8F0",
-    text: "#363537",
-    background: "#363537",
-};
+export const light = {
+  body: '#edf2f7',
+  text: '#363537',
+  header: {
+    title: '#000',
+    subtitle: 'rgba(0, 0, 0, 0.8)',
+  },
+  markdown: {
+    background: 'rgba(0, 0, 0, 0.08)',
+    color: '#000',
+    border: '#334f72',
+  },
+  previewer: {
+    background: '#fff',
+    color: '#000',
+    links: 'rgb(60, 86, 226)',
+    code: '#dde1e6',
+  },
+}
 
-export const darkTheme = {
-    body: "#1A202C",
-    text: "#FAFAFA",
-    background: "#999",
-};
-
-export const quietTheme = {
-    body: "#9AE6B4",
-    text: "#22543D",
-    background: "#22543D",
-};
-  
-export const oceanTheme = {
-    body: "#4FD1C5",
-    text: "#285E61",
-    background: "#285E61",
-};
-  
-export const marvelTheme = {
-    body: "#FC8181",
-    text: "#FFF5F5",
-    background: "#22543D",
-};
+export const dark = {
+    body: '#222',
+  text: '#FAFAFA',
+  header: {
+    title: '#fff',
+    subtitle: 'rgba(250, 250, 250, 0.8)',
+  },
+  markdown: {
+    background: '#363537',
+    color: '#fff',
+    border: '#828282',
+  },
+  previewer: {
+    background: '#222',
+    color: '#fff',
+    links: 'rgb(135, 206, 235)',
+    code: '#363537',
+  },
+}
