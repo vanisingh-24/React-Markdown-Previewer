@@ -1,133 +1,103 @@
 import React, { useState,useEffect } from 'react';
-import "./App.css";
 import { ThemeProvider } from 'styled-components';
+import marked from 'marked';
 
-import Editor from './Components/Editor';
+import GlobalStyles from './utils/GlobalStyles';
+import Main from './Components/Main';
+import Container from './Components/Container';
 import Previewer from './Components/Previewer';
-import ThemeColor from './Components/ThemeColor';
+import Editor from './Components/Editor';
 import RepoLink from './Components/RepoLink';
 import Toggle from './Components/Toggle';
+import Header from './Components/Header';
 import {MoonIcon, SunIcon} from './Components/Icons';
-import GlobalStyles from './utils/GlobalStyles';
-import{
-  light,
-  dark
-} from './utils/Themes';
-import {useTheme} from './utils/useTheme';
+
+import{light,dark} from './utils/Themes';
 
 const App = () => {
-  //const [markdown, setMarkdown] = useState(placeholder);
-  //const [theme, setMode, mountedComponent] = useTheme();
-  //const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('light');
+  const [markdown, setMarkdown] = useState(placeholder);
 
-  const themeMode = () => {
-    switch (theme) {
-      case "light":
-        return light;
-      case "dark":
-        return dark;
-      default:
-        return light;
+  const toggleTheme = () => {
+    if(theme === 'light'){
+      localStorage.setItem('theme', 'dark');
+      setTheme('dark');
+    }else{
+      localStorage.setItem('theme', 'light');
+      setTheme('light');
     }
-  };
+  }
 
-  //if(!mountedComponent) return <div />;
+  useEffect(() => {
+    const data = localStorage.getItem('default-md');
+    if(data) setMarkdown(data);
+  }, []);
+
+  useEffect(() => {
+    const localTheme = localStorage.getItem('theme');
+    localTheme && setTheme(localTheme);
+    localStorage.setItem('default-md', markdown);
+  }, [markdown]);
 
   return (
-    <ThemeProvider theme={themeMode()}>
-      <div className="container">
-        <h1 className="is-size-1 has-text-weight-bold has-text-centered">
-          React Markdown Previewer
-        </h1>
-        <ThemeColor setMode={setMode} />
-        <div className="AppWrap columns">
-            <div className="EditorWrap column">
-              <Editor
-                markdown={markdown}
-                onChange={(e) => setMarkdown(e.target.value)}
-              />
-            </div>
-            <div className="PreviewerWrap column">
-              <Previewer markdown={markdown} />
-            </div>
-        </div>
-      </div>
+    <ThemeProvider theme={theme === 'light' ? light : dark}>
+      <>
+        <GlobalStyles />
+        <Container>
+          <Header />
+          <Toggle onClick={toggleTheme} theme={theme}>
+            {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
+          </Toggle>
+          <Main>
+            <Editor
+              value={markdown}
+              onChange={e => setMarkdown(e.target.value)}
+            />
+            <Previewer dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+          </Main>
+        </Container>
+        <RepoLink />
+      </>
     </ThemeProvider>
-    // <div className="App">
-    //    <div className="container">
-
-    //        <div className="row mt-4">
-    //           <div className="col text-center">
-    //            <h1>
-    //              <Badge className="text-align-center" variant="light" style={{fontSize: '50px'}}>
-    //                React Markdown Previewer
-    //              </Badge>
-    //            </h1>
-    //           </div>
-    //         </div>
-
-    //         <div className="row mt-5">
-    //          <div className="col-md-6">
-    //           <div className="col text-center">
-    //              <h4>
-    //                <Badge className="text-align-center" variant="secondary" style={{fontSize: '28px'}}>
-    //                   Editor
-    //                </Badge>
-    //              </h4>
-    //            </div>
-    //            <Editor 
-    //              markdown={markdown}
-    //              onChange={(e) => setMarkdown(e.target.value)}
-    //             />
-    //           </div>
-
-    //           <div className="col-md-6">
-    //            <div className="col text-center">
-    //              <h4>
-    //                <Badge className="text-align-center" variant="secondary" style={{fontSize: '28px'}}>
-    //                  Previewer
-    //                </Badge>
-    //              </h4>
-    //            </div>
-    //            <Previewer markdown={markdown} />
-               
-    //           </div>
-    //         </div>
-    //     </div>
-    // </div>
   );
 }
 
-const placeholder = `Heading
-=======
+const placeholder = `# Welcome to my React Markdown Previewer!
+## This is a sub-heading...
+### And here's some other cool stuff:
+  
+Heres some code, \`<div></div>\`, between 2 backticks.
+\`\`\`
+// this is multi-line code:
+function anotherExample(firstLine, lastLine) {
+  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
+    return multiLineCode;
+  }
+}
+\`\`\`
+  
+You can also make text **bold**... whoa!
+Or _italic_.
+Or... wait for it... **_both!_**
+And feel free to go crazy ~~crossing stuff out~~.
+There's also [links](https://github.com/PragatiVerma18), and
+> Block Quotes!
+And if you want to get really crazy, even tables:
+Wild Header | Crazy Header | Another Header?
+------------ | ------------- | ------------- 
+Your content can | be here, and it | can be here....
+And here. | Okay. | I think we get it.
+- And of course there are lists.
+  - Some are bulleted.
+     - With different indentation levels.
+        - That look like this.
+1. And there are numbererd lists too.
+1. Use just 1s if you want! 
+1. But the list goes on...
+- Even if you use dashes or asterisks.
+* And last but not least, let's not forget embedded images:
+![React Logo w/ Text](https://goo.gl/Umyytc)
+`;
 
----
-
-Sub-heading
------------
- 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Text attributes *italic*, **bold**, 
-
-Ordered list:
-
-  * item
-  * item
-  * item
-
-Numbered list:
-
-  1. item
-  2. item
-  3. item
-
-javascript 
-var s = "JavaScript syntax highlighting";
-
-alert(s);
- 
-
-*[Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)*`
 
 export default App;

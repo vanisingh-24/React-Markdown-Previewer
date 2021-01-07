@@ -1,17 +1,25 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Editor = (props) => {
-  return (
-    <div className="container">
-      <textarea
-        id="editor"
-        value={props.markdown}
-        onChange={props.onChange}
-        type="text"
-        className="textarea"
-      />
-    </div>
-  );
-};
+const Textarea = styled.textarea`
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 15px;
+  padding: 15px;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.markdown.background};
+  color: ${({ theme }) => theme.markdown.color};
+  border: none;
+  outline: none;
+  resize: none;
+  line-height: 1.5;
+  min-height: 500px;
+  &:focus {
+    box-shadow: inset 0px 0px 0px 1px ${({ theme }) => theme.markdown.border};
+  }
+`;
+
+const Editor = ({value, onChange}) => {
+    return <Textarea value={value} onChange={onChange} />
+}
 
 export default Editor;
