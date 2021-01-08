@@ -62,42 +62,36 @@ const App = () => {
   );
 }
 
-const placeholder = `# Welcome to my React Markdown Previewer!
-## This is a sub-heading...
-### And here's some other cool stuff:
+const placeholder = `# Hello 👋
+This is a React Markdown Editor ✍ designed by [Vani Singh](https://github.com/vanisingh-24)
+## 🤷‍♂️ What can you write here
+1. Code
+  * eg: \`<div></div>\` or
+  *eg:
+  \`\`\`bash
+  npm install 
+  \`\`\`
+2. Blockquote
+	* eg: 
+> Blockquote
+3. Different Text Style
+  * **Bold**
+  * *Italic*
+  * ~~Strikethrough~~
   
-Heres some code, \`<div></div>\`, between 2 backticks.
-\`\`\`
-// this is multi-line code:
-function anotherExample(firstLine, lastLine) {
-  if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
-    return multiLineCode;
-  }
-}
-\`\`\`
+4. Tables
+    | Name          | Age           | Salary|
+    | ------------- |:-------------:| -----:|
+    | Steve        | 32           | $160000|
+    | Peter         | 24            |$120000|
+    | Tony        | 37           | $150000 |
+5. Images
   
-You can also make text **bold**... whoa!
-Or _italic_.
-Or... wait for it... **_both!_**
-And feel free to go crazy ~~crossing stuff out~~.
-There's also [links](https://github.com/PragatiVerma18), and
-> Block Quotes!
-And if you want to get really crazy, even tables:
-Wild Header | Crazy Header | Another Header?
------------- | ------------- | ------------- 
-Your content can | be here, and it | can be here....
-And here. | Okay. | I think we get it.
-- And of course there are lists.
-  - Some are bulleted.
-     - With different indentation levels.
-        - That look like this.
-1. And there are numbererd lists too.
-1. Use just 1s if you want! 
-1. But the list goes on...
-- Even if you use dashes or asterisks.
-* And last but not least, let's not forget embedded images:
-![React Logo w/ Text](https://goo.gl/Umyytc)
+    ![React](https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/412/square_256/AccessibleReact_1000.png)
+## 🛸 Technologies Used
+*  React.js
+*  SCSS
+*  Javascript
 `;
-
 
 export default App;
