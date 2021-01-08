@@ -62,13 +62,19 @@ const App = () => {
   );
 }
 
-const placeholder = `# Hello 👋
-This is a React Markdown Editor ✍ designed by [Vani Singh](https://github.com/vanisingh-24)
+const placeholder = `# Welcome to my React Markdown Previewer !
 ## 🤷‍♂️ What can you write here
 1. Code
-  * eg: \`<div></div>\` or
-  *eg:
-  \`\`\`bash
+  *  \`<div></div>\` 
+  *  \`\`\`
+  // this is multi-line code:
+  function anotherExample(firstLine, lastLine) {
+    if (firstLine == '\`\`\`' && lastLine == '\`\`\`') {
+    return multiLineCode;
+  }
+}
+\`\`\` 
+* \`\`\` bash
   npm install 
   \`\`\`
 2. Blockquote
@@ -78,16 +84,18 @@ This is a React Markdown Editor ✍ designed by [Vani Singh](https://github.com/
   * **Bold**
   * *Italic*
   * ~~Strikethrough~~
+4. Links [Click Here](https://github.com/vanisingh-24)
   
-4. Tables
+5. Tables
     | Name          | Age           | Salary|
     | ------------- |:-------------:| -----:|
     | Steve        | 32           | $160000|
     | Peter         | 24            |$120000|
     | Tony        | 37           | $150000 |
-5. Images
+6. Images
   
     ![React](https://d2eip9sf3oo6c2.cloudfront.net/series/square_covers/000/000/412/square_256/AccessibleReact_1000.png)
+
 ## 🛸 Technologies Used
 *  React.js
 *  SCSS
