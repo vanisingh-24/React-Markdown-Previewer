@@ -1,7 +1,9 @@
 import React, { useState,useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
 import marked from 'marked';
+import './App.css';
 
+import Toolbar from './Components/Toolbar';
 import GlobalStyles from './utils/GlobalStyles';
 import Main from './Components/Main';
 import Container from './Components/Container';
@@ -49,11 +51,17 @@ const App = () => {
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </Toggle>
           <Main>
+            <div>
+            <Toolbar text="Editor" />
             <Editor
               value={markdown}
               onChange={e => setMarkdown(e.target.value)}
             />
+            </div>
+            <div>
+            <Toolbar text="Previewer" />
             <Previewer dangerouslySetInnerHTML={{ __html: marked(markdown) }} />
+            </div>
           </Main>
         </Container>
         <RepoLink />
