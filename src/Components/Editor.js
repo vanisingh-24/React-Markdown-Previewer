@@ -17,6 +17,7 @@ const Textarea = styled.textarea`
   width: 90%;
   border-color: #dbdbdb;
   border-radius: 4px;
+  margin-left: 25px;
   &:hover{
     border-color: #b5b5b5 !important;
   }

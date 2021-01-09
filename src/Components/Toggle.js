@@ -2,16 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  border: none;
   background-color: transparent;
-  padding: 10px;
+  padding: 20px;
+  border: none;
+  font-size: 16px
   outline: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 5px;
   background-color: ${props => (props.theme === 'dark' ? '#fff' : '#222')};
   transition: background-color 0.3s ease;
   position: absolute;
-  top: 45px;
+  top: 5px;
   right: 15px; 
 
  svg {

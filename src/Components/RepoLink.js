@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 const Link = styled.a`
   display: inline-block;
-  width: 32px;
-  height: 32px;
+  width: 80px;
+  height: 80px;
   min-width: 32px;
   min-height: 32px;
   position: fixed;
-  right: 10px;
-  bottom: 10px;
+  left: 10px;
+  top: 20px;
   opacity: 0.5;
   transition: opacity 0.3s ease;
   

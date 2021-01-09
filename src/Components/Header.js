@@ -2,15 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.header`
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin-bottom: 40px;
   margin-top: 30px;
+  text-align: center;
 `;
 
 const Title = styled.h1`
   margin-bottom: 10px;
   margin-top: 0;
-  font-size: 30px;
+  font-weight: 700 !important;
+  font-size: 3rem !important;
   color: ${({ theme }) => theme.header.title};
 `;
 

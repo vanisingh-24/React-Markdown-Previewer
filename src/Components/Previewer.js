@@ -6,7 +6,9 @@ const Previewer = styled.div`
   color: ${({ theme }) => theme.previewer.color};
   border-radius: 6px;
   display: block;
+  font-size: 20px;
   padding: 20px !important;
+  margin-right: 25px;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
               0 0 0 1px rgba(10, 10, 10, 0.02);
 
