@@ -71,7 +71,7 @@ const App = () => {
 }
 
 const placeholder = `# Welcome to my React Markdown Previewer !
-## 🤷‍♂️ What can you write here
+## 🤷‍♂️ What can you write here :
 1. Code
   *  \`<div></div>\` 
   *  \`\`\`

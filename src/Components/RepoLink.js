@@ -7,9 +7,9 @@ const Link = styled.a`
   height: 80px;
   min-width: 32px;
   min-height: 32px;
-  position: fixed;
   left: 10px;
   top: 20px;
+  position: absolute;
   opacity: 0.5;
   transition: opacity 0.3s ease;
   
